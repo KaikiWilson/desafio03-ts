@@ -1,5 +1,5 @@
-import { Center, SimpleGrid, Spinner } from "@chakra-ui/react"
-import { useParams, useNavigate } from "react-router-dom"
+import { Box, Center, SimpleGrid, Spinner, Text } from "@chakra-ui/react"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
 import { api } from "../api"
 import CardInfo from "../components/CardInfo"
@@ -38,7 +38,7 @@ const Conta = () => {
     }
   
     return (
-        <Center>
+        <Center display={'flex'} flexDirection={'column'}>
             <SimpleGrid columns={2} spacing={8} paddingTop={16}>
                 {
                     userData === undefined || userData === null ?
@@ -49,12 +49,19 @@ const Conta = () => {
                     ) : 
                     (
                         <>
-                            <CardInfo mainContent={`Bem vinda ${userData?.name}`} content={`${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`} />
+                            <CardInfo mainContent={`Bem vindo(a) ${userData?.name}`} content={`${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`} />
                             <CardInfo mainContent='Saldo' content={`R$ ${userData.balance}`}/>
                         </>
                     )
                 }
-            </SimpleGrid>    
+            </SimpleGrid>
+            <Box bg={'white'} marginTop={'2.5rem'} borderRadius={'20px'} padding={'10px'}>
+                <Link to={'/infoconta'}>
+                    <Text fontSize='20px' fontWeight={'lighter'}>
+                        Informações da Conta
+                    </Text>
+                </Link>
+            </Box>    
         </Center>
     )
 }

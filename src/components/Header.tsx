@@ -1,6 +1,6 @@
 import { Box, Button, Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { changeLocalStorage } from '../services/storage'
 import { AppContext } from './AppContext'
 
@@ -18,7 +18,7 @@ export const Header  = () => {
     <Flex backgroundColor='orange' padding='5px'>
       <Box>
         <Center>
-          <Text fontSize='3xl'>Dio Bank</Text>
+          <Text fontWeight={'lighter'} fontSize='3xl'>Dio Bank</Text>
         </Center>
       </Box>
       {
